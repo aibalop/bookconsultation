@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		title = "Hello Pug"
+		link(rel='stylesheet', href= '/css/materialize.min.css')
+	body
+		include ./nav.pug
+		div.container(style='margin-top:25px;')
+			div.row
+				form.col.s12(action='/sendData', method='post')
+					div.input-field.col.s12
+						textarea#textarea1.materialize-textarea(name="txt")
+						label(for="textarea1") Texto
+					button.btn.waves-effet.waves-light Enviar
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+		script(src="/js/materialize.min.js")
