@@ -12,12 +12,26 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get("/" , (req , res) => {
-	res.status(200).render('inicio');
+	res.status(200).render('inicio',{
+		title : "Inicio"
+	});
 });
 
-app.post('/sendData',(req, res) => {
+app.get('/info',(req, res)=>{
+	res.status(200).render('info',{
+		title : "Información"
+	});
+});
+
+app.post('/login',(req, res) => {
 	console.log(req.body);
-	res.status(200).redirect('/');
+	if (req.body.txtUser == 'alan' && req.body.txtPass == 'oka') {
+		res.status(200).redirect('/info');
+	}else{
+		res.status(200).render('inicio',{
+			mensaje : "Datos incorrectos"
+		});
+	}
 });
 
 

@@ -1,16 +1,44 @@
 doctype html
 html
 	head
-		title = "Hello Pug"
-		link(rel='stylesheet', href= '/css/materialize.min.css')
-	body
+		title #{title}
+		include ./importscss.pug
+	body.grey.lighten-4
 		include ./nav.pug
 		div.container(style='margin-top:25px;')
+
 			div.row
-				form.col.s12(action='/sendData', method='post')
-					div.input-field.col.s12
-						textarea#textarea1.materialize-textarea(name="txt")
-						label(for="textarea1") Texto
-					button.btn.waves-effet.waves-light Enviar
+				div.col.s12.m5.offset-m3
+					div.card.z-depth-4
+						div.card-image
+							img(src="http://kb4images.com/images/office-wallpaper/37363423-office-wallpaper.jpg")
+							span.card-title.teal-text Bienvenido, Iniciar Sesión
+						form(action="/login" , method="post")
+							div.card-content
+								div.row
+									div.row
+										div.input-field.col.s11
+											i.material-icons.prefix account_circle
+											input.validate#icon_user(type="text",name="txtUser")
+											label#icon_user Usuario
+
+									div.row
+										div.input-field.col.s11
+											i.material-icons.prefix fingerprint
+											input.validate#icon_password(type="password",name="txtPass")
+											label#icon_password Password
+
+										
+							div.card-action.center
+								button.btn.waves-effect.waves-light.btn-large Iniciar
+									i.material-icons.right vpn_key
+			
 		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
 		script(src="/js/materialize.min.js")
+
+		if(mensaje)
+			script Materialize.toast('#{mensaje}', 3000, 'rounded')
+
+
+
+
