@@ -33,8 +33,7 @@ html
 								button.btn.waves-effect.waves-light.btn-large Iniciar
 									i.material-icons.right vpn_key
 			
-		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-		script(src="/js/materialize.min.js")
+		include ./importsjs.pug
 
 		if(mensaje)
 			script Materialize.toast('#{mensaje}', 3000, 'rounded')

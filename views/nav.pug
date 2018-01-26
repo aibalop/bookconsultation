@@ -2,12 +2,20 @@ nav
 	div.nav-wrapper.teal
 		a.brand-logo(href="/")
 			img(width = "50px",height = "50px",src="/img/brand.png",style="margin:6px")
+		a.button-collapse(href="#", data-activates="mobil-demo")
+			i.material-icons menu
 		ul.right.hide-on-med-and-down#nav-mobile
 			li
 				a(href="/") Inicio
 			li
 				a(href="/info") Información 
 			li
-				a(href="#") Buscar
+				a(href="/logout") Salir
+
+		ul.side-nav#mobil-demo
 			li
-				a(href="#") Salir
+				a(href="/") Inicio
+			li
+				a(href="/info") Información 
+			li
+				a(href="/logout") Salir

@@ -2,8 +2,16 @@ doctype html
 html
 	head
 		title #{title}
-		link(rel='stylesheet', href= '/css/materialize.min.css')
+		include ./importscss.pug
 	body.grey.lighten-4
 		include ./nav.pug
 		div.container(style='margin-top:25px;')
-			
+			if(usuario)
+				div.chip Bienvenido #{usuario}
+					img(src="https://ece.nl/wp-content/uploads/person-dummy.jpg" , alt="usuario") 
+			else
+				span.new.badge(data-badge-caption="") Debe iniciar sesión
+
+		include ./importsjs.pug
+
+
