@@ -27,15 +27,15 @@ function auth(req, res, next) {
     }
 }
 
-app.get("/", (req, res) => {
-    res.status(200).render('inicio', {
-        title: "Inicio"
+app.get("/login", (req, res) => {
+    res.status(200).render('login', {
+        title: "OpenBooks | Iniciar Sesión"
     });
 });
 
-app.get('/info', auth, (req, res) => {
-    res.status(200).render('info', {
-        title: "Información",
+app.get('/', (req, res) => {
+    res.status(200).render('index', {
+        title: "OpenBooks | Your guid´s consulting",
         usuario: req.session.user
     });
 });
@@ -47,14 +47,14 @@ app.get('/logout', (req, res) => {
     });
 });
 
-app.post('/login', (req, res) => {
+app.post('/login_process', (req, res) => {
     console.log(req.body);
     if (req.body.txtUser == 'alan' && req.body.txtPass == 'oka') {
         req.session.user = req.body.txtUser;
-        res.status(200).redirect('/info');
+        res.status(200).redirect('/');
     } else {
-        res.status(200).render('inicio', {
-        	title : "Inicio",
+        res.status(200).render('login', {
+        	title : "OpenBooks | Iniciar Sesión",
             mensaje: "Datos incorrectos"
         });
     }

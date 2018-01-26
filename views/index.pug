@@ -1,0 +1,39 @@
+doctype html
+html
+	head
+		title #{title}
+		include ./importscss.pug
+	body.grey.lighten-4
+		include ./nav.pug
+		div.container(style='margin-top:25px')
+			div.row
+				div.row.col.s3
+					if(usuario)
+						div.chip Bienvenido #{usuario}
+							img(src="https://ece.nl/wp-content/uploads/person-dummy.jpg" , alt="usuario") 
+					div.collection
+						a.collection-item Book
+						a.collection-item Book
+						a.collection-item Book
+						a.collection-item Book
+						a.collection-item Book
+				div.row.col.s9
+					
+					each val in [1,2,3,4,5,7,8,,9,10]
+						div.row.col.s3
+							div
+								div.card
+									div.card-image
+										img(src="https://marketplace.canva.com/MACSXEOzaeQ/1/0/thumbnail_large/canva-orange-and-dark-purple-triangular-modern-architecture-book-cover-MACSXEOzaeQ.jpg")
+										span.card-title Title book
+										a.btn-floating.halfway-fab.waves-effect.waves-light-red 
+											i.material-icons library_books
+									div.card-content
+										p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nam dignissimos natus, animi maxime sint mollitia placeat? Velit totam, aspernatur eum quisquam accusamus ea molestiae, maxime, sapiente nulla maiores aut!
+
+
+
+
+		include ./importsjs.pug
+
+
