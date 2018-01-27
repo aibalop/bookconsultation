@@ -6,23 +6,16 @@ html
 	body.grey.lighten-4
 		include ./nav.pug
 		div.row.container(style="margin-top:25px;")
-			div.col.s3
-				if(usuario)
-					div.chip Bienvenido #{usuario}
-						img(src="https://ece.nl/wp-content/uploads/person-dummy.jpg" , alt="usuario") 
-
-				form(action="/buscar", method="post")
-					div.input-field
-						input.validate#txtBook(type="text",name="txtBook")
-						label(for="txtBook") Buscar libro
-
+			div.col
+				div.input-field
+					input.validate#txtBook(type="text")
+					label(for="txtBook") Buscar libro
 				div.collection
 					each categoria in categorias
 						a.collection-item(href="/categoria/" + categoria.category_id) #{categoria.name}
 
 			div.col.s9
-				
-				
+			
 				div.row
 					each libro in libros
 						div.col.m4
